@@ -1,4 +1,5 @@
 <script src="assets/js/jquery.min.js"></script> 
+
     <script> 
     $(function(){
       $("#includedContent").load("header.html"); 
@@ -8,7 +9,7 @@
 
 	<!-- Header -->
 		<header id="header">
-			<a href="index.php" class="logo"><strong>Porodično stablo</strong> porodice Marković</a>
+			<a href="index.html" class="logo"><strong>Porodično stablo</strong> porodice Marković</a>
 			<ul class="icons">
 				<li><a href="http://fb.com/nikola.markovic" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 				<li><a href="http://instagram.com/likbezkola" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
@@ -36,11 +37,16 @@
 						</div>
 					</div>
 
-
-<?php include 'sidebar.php'; ?>
-
-
+    <script> 
+    $(function(){
+      $("#includedContent").load("sidebar.html"); 
+    });
+    </script> 
+	
 			</div><!-- kraj Wrapper -->
 
-
-<?php include 'footer.php'; ?>
+    <script> 
+    $(function(){
+      $("#includedContent").load("footer.html"); 
+    });
+    </script> 
