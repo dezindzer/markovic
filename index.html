@@ -1,10 +1,15 @@
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/includejs"></script>
 
+<!-- 
     <script> 
 $(document).ready(function() {
     $('#header').load('header.html');
 });	      
-    </script> 
+    </script>  -->
+
+<include src="header.html">Loading...</include>
+
 
 
 	<!-- Header -->
@@ -37,16 +42,21 @@ $(document).ready(function() {
 						</div>
 					</div>
 
-    <script> 
+    <!-- <script> 
 $(document).ready(function() {
     $('#sidebar').load('sidebar.html');
 });	      
     </script> 
-	
+	 -->
+<include src="sidebar.html">Loading...</include>
+
+
 			</div><!-- kraj Wrapper -->
 
-    <script> 
+    <!-- <script> 
 $(document).ready(function() {
     $('#footer').load('footer.html');
 });	      
-    </script> 
+    </script>  -->
+
+<include src="footer.html">Loading...</include>
