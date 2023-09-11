@@ -25,7 +25,7 @@ $(document).mousemove(function(event){
             width = 1000,
             height = 1000,
             radius = 50 * Math.max(width, height) / 100,
-            x = d3.scale.linear().range([0, 2 * Math.PI]),
+            x = d3.scaleLinear().range([0, 2 * Math.PI]),
             y = d3.scale.pow().exponent(1.3).domain([0, 1]).range([0, radius]),
             padding = 5,
             duration = 1500;
