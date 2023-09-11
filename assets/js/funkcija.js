@@ -1,4 +1,4 @@
- $(document).mousemove(function(event){
+$(document).mousemove(function(event){
         var mouseX = event.pageX-$(document).scrollLeft();
         var mouseY = event.pageY-$(document).scrollTop();
         if ($(document).width()-290 < mouseX) {
@@ -121,7 +121,7 @@
             .attr("offset", "0.5")
             .attr("stop-color", "#f56a6a")
 
-     var singlegradient = svg
+    var singlegradient = svg
             .append("linearGradient")
             .attr("y1", minY)
             .attr("y2", maxY)
@@ -147,7 +147,7 @@
 
 
     function updateGraph(path) {
-         $.ajax({
+        $.ajax({
             url: path,
             cache: false,
             dataType: "text",
