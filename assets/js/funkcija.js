@@ -30,7 +30,7 @@ $(document).mousemove(function(event){
             padding = 5,
             duration = 1500;
 
-    var color = d3.scale.category20();
+    var color = d3.schemeCategory20();
 
     var div = d3.select("#vis");
 
