@@ -170,7 +170,7 @@ class App {
     // Akcije iz Drawera
     if (this.drawerAddChildBtn) {
       this.drawerAddChildBtn.addEventListener('click', () => {
-        if (this.selectedPersonId) this.openAddPersonModal(this.selectedPersonId);
+        if (this.selectedPersonId) this.openAddChildModal(this.selectedPersonId);
       });
     }
 
@@ -347,6 +347,10 @@ class App {
     if (this.activeView === 'tree') {
       this.treeRenderer.render(this.dataManager.getFilteredTree(this.hideFemales), null);
     }
+  }
+
+  openAddPersonModal(parentId) {
+    return this.openAddChildModal(parentId);
   }
 
   // MODAL: Dodavanje potomka / člana
