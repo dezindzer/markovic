@@ -1,195 +1,188 @@
-<!DOCTYPE HTML><html><head>
-	<title>Porodično stablo porodica Marković, Marinković i Glišić</title>
-	<meta charset="utf-8" />
-<!-- for Google -->
-    <meta name="description" content="Porodično stablo porodica Marković, Marinković i Glišić" />
-    <meta name="keywords" content="porodicno, porodično, stablo, chart, d3js chart, genealogy, tree, circle" />
-    <meta name="author" content="Nikola Marković" />
-<!-- for Facebook -->
-    <meta property="og:title" content="Porodično stablo porodica Marković, Marinković i Glišić" />
-    <meta property="og:type" content="article" />
-    <meta property="og:locale" content="sr_RS" /> 
-    <meta property="og:image" content="https://dezindzer.github.io/markovic/assets/img/fb.png" />
-    <meta property="og:url" content="https://dezindzer.github.io/markovic/" />
-    <meta property="article:author" content="https://www.facebook.com/nikola.markovic" />
-    <meta property="og:description" content="Porodično stablo porodica Marković, Marinković i Glišić" />
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />	
-	
-	<script src="assets/js/d3.v3.min.js" charset="utf-8"></script>
-	<script src="assets/js/jquery.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-	
-	<style  type='text/css'>
-		.node circle {
-		fill: #fff;
-		stroke: steelblue;
-		stroke-width: 3px;
-		}
-		.node text { font: 12px sans-serif; }
-		.link {
-		fill: none;
-		stroke: #ccc;
-		stroke-width: 2px;
-		}
-    </style>
-	</head><body>
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-	<!-- Header -->
-		<header id="header">
-			<a href="index.html" class="logo"><strong>Porodično stablo</strong> porodice Marković</a>
-			<ul class="icons">
-				<!--<li><a href="https://fb.com/nikola.markovic" class="icon fa-facebook"><span class="label">Facebook</span></a></li>-->
-				<li><a href="https://instagram.com/likbezkola" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="https://www.linkedin.com/in/nikmark/" class="icon fa-medium"><span class="label">Medium</span></a></li>
-			</ul>
-		</header>
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Porodično Stablo | Porodica Marković</title>
+  <meta name="description" content="Interaktivno porodično stablo porodice Marković sa prikazom hijerarhije, filtriranjem i pretragom." />
+  <meta name="author" content="Nikola Marković" />
 
-								<section>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-<div style="display:none"> <form><strong>IMENA: </strong> <label><input type="radio" name="mode">SAKRIJ</label> <label><input type="radio" name="mode" checked>PRIKAŽI</label> <label><input type="radio" name="mode">Deca</label></span> </form></div>
-<script>if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    document.write("<b>Sajt nije prilagođen mobilnim telefonima. Za najbolji prikaz, posetite nas preko računara ili tableta :)</b>");
-}</script>
+  <!-- Application Styles -->
+  <link rel="stylesheet" href="assets/css/app.css" />
 
-<div id="vis" class="centar"></div>
+  <!-- D3.js v6 for Sunburst view -->
+  <script src="assets/js/d3.v6.min.js"></script>
+</head>
+<body>
 
-<script src="assets/js/funkcija.js" charset="utf-8"></script>
-<script>
-    window.onload = function () {
-        updateGraph("assets/json/markovic.json");
-    }
-</script>
+  <div id="app-container">
+    <!-- Top Navigation Header -->
+    <header class="top-header">
+      <div class="brand-section">
+        <div class="brand-logo">🌳</div>
+        <div class="brand-title">
+          <h1>Porodično Stablo</h1>
+          <p>Porodica Marković</p>
+        </div>
+      </div>
 
-								</section>
-						</div>
-					</div>
-					<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major"><h2>Meni</h2></header>
-									<ul><li><a href="index.html">Marković</a></li></ul>
-									<!-- <ul><li><a href="marinkovic.html">Marinković</a></li></ul>
-									<ul><li><a href="glisic.html">Glišić</a></li></ul>
-									<ul><li><a href="svi.html">Celo stablo</a></li></ul> -->
-								</nav>
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Informacije</h2>
-									</header>
+      <!-- Live Search Bar -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="Pretraži člana (ime, godina, partner...)" autocomplete="off" />
+          <button id="search-clear-btn" class="search-clear-btn" title="Očisti pretragu">✕</button>
+        </div>
+        <div id="search-results" class="search-results-dropdown"></div>
+      </div>
 
-<table class="fixed"><!-- Početak Tabele -->
-	<tbody>
-		<tr>
-			<th>Ime</th>
-			<td id="tdName" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Godina rođenja</th>
-			<td id="tdOd" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Mobilni</th>
-			<td id="tdMob" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Email</th>
-			<td id="tdEmail" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Facebook</th>
-			<td id="tdFb" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Website</th>
-			<td id="tdSajt" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Biografija</th>
-			<td id="tdBio" width="70%"></td>
-		</tr>
-		<tr>
-			<th>Slika</th>
-			<td id="tdSlika" width="70%"></td>
-		</tr>
-	</tbody>
-</table>
-	<table class="fixed">
-		<thead> 		
-			<tr>
-				<th>Ime</th>
-				<th>Pol</th>
-				<th>Email</th>
-			</tr>
-		</thead>
-			<tbody>
-				<tr>
-				<td id="tdName" width="40%"></td>
-				<td id="tdGender" width="30%"></td>
-				<td id="tdEmail" width="30%"></td>
-				<tr>
-				</tbody>
-	</table>
-		
-		<div class="box">
-			<div id="col2">
-			<p></p>
-			</div>
-		</div><!-- Kraj Tabele -->
+      <!-- Header Controls & Filters -->
+      <div class="header-controls">
+        <!-- View Mode Selector -->
+        <div class="view-mode-tabs">
+          <button class="view-tab-btn active" data-view="tree" title="Hijerarhijski prikaz stabla">
+            <span>🌳</span> Stablo
+          </button>
+          <button class="view-tab-btn" data-view="sunburst" title="Prstenasti prikaz godova">
+            <span>⭕</span> Godovi
+          </button>
+          <button class="view-tab-btn" data-view="table" title="Tabelarni prikaz">
+            <span>📋</span> Tabela
+          </button>
+        </div>
 
+        <!-- Filter for hiding females -->
+        <label class="toggle-switch-wrapper" title="Filtriraj prikaz na samo muške potomke">
+          <span class="toggle-label-text">Samo muška linija</span>
+          <input type="checkbox" id="female-filter-checkbox" class="toggle-checkbox" />
+          <span class="toggle-switch"></span>
+        </label>
 
+        <!-- Action Buttons -->
+        <button id="export-json-btn" class="action-btn primary" title="Preuzmi ažurirani drvo.json fajl">
+          <span>💾</span> Preuzmi drvo.json
+        </button>
+        <button id="reset-data-btn" class="action-btn" title="Resetuj na originalne podatke">
+          <span>🔄</span> Resetuj
+        </button>
+      </div>
+    </header>
 
+    <!-- Main Viewport -->
+    <main class="main-viewport">
+      <!-- Tree View Container -->
+      <div id="tree-view-container" class="tree-canvas-container"></div>
 
-								</section>		
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Legenda</h2>
-									</header>
-		<div class="box">
-			<ul class="actions">
-			<li><a href="#" class="button special">Žene</a></li>
-			<li><a href="#" class="button special" style="background-color: #5883c3 !important;">Muškarci</a></li>
-			</ul>
-			<hr>
-			<p>Klik bilo gde da se zumira, klik na centar da se odzumira :)</p>
-			<hr>
-			<p>Ovo porodicno stablo je koncipirano kao godovi kod drveta. <br>Spolja = mlade.</p>
-			<p>Trenutno se pokazuju samo direktni potomci "Spase", ali ne i bracni drugovi njegovih potomaka.</p>
-			<p>U planu je dodavanje više informacija o Spasinim potomcima, kada se za to bude imalo vremena :)</p>
-		</div>
-								</section>
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Kontakt</h2>
-									</header>
-									<p></p>
-									<ul class="contact">
-										<li class="fa-facebook"><a href="https://fb.me/nikola.markovic">Facebook</a></li>
-										<li class="fa-linkedin"><a href="https://www.linkedin.com/in/nikmark/">LinkedIn</a></li>
-									</ul>
-								</section>
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Nikola Marković</a>.</p>
-								</footer>
-						</div>
-					</div>
-			</div><!-- kraj Wrapper & Footer kreće odavde-->
+      <!-- Sunburst Godovi View Container -->
+      <div id="sunburst-view-container" class="sunburst-view-container"></div>
 
-			<!-- Scripts -->
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-	</body>
+      <!-- Table View Container -->
+      <div id="table-view-container" class="table-view-container"></div>
+
+      <!-- Floating Zoom Controls -->
+      <div class="zoom-toolbar">
+        <button id="zoom-in-btn" class="zoom-btn" title="Uvećaj (Zoom In)">+</button>
+        <button id="zoom-out-btn" class="zoom-btn" title="Umanji (Zoom Out)">−</button>
+        <button id="zoom-reset-btn" class="zoom-btn" title="Centriraj stablo">🎯</button>
+      </div>
+
+      <!-- Stats Bar Pill -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span>Ukupno:</span>
+          <span id="stat-total" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+          <span>Muškarci:</span>
+          <span id="stat-males" class="stat-value" style="color: var(--male-color);">0</span>
+        </div>
+        <div class="stat-item">
+          <span>Žene:</span>
+          <span id="stat-females" class="stat-value" style="color: var(--female-color);">0</span>
+        </div>
+        <div class="stat-item">
+          <span>Generacije:</span>
+          <span id="stat-gens" class="stat-value" style="color: var(--accent-gold);">0</span>
+        </div>
+      </div>
+
+      <!-- Person Profile Detail Drawer -->
+      <aside id="detail-drawer" class="detail-drawer">
+        <div class="drawer-header">
+          <h3>Profil članа</h3>
+          <button id="drawer-close-btn" class="drawer-close-btn">✕</button>
+        </div>
+
+        <div class="drawer-body">
+          <div class="profile-card-top">
+            <img id="drawer-photo" class="profile-photo" src="assets/img/osoba.jpg" alt="Foto" />
+            <h2 id="drawer-name" class="profile-name">Ime Prezime</h2>
+            <span id="drawer-badge" class="profile-badge male">Muški član</span>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-box">
+              <div class="info-label">Godina rođenja</div>
+              <div id="drawer-od" class="info-val">-</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">Mesto rođenja</div>
+              <div id="drawer-mr" class="info-val">-</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">Godina smrti</div>
+              <div id="drawer-do" class="info-val">-</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">Mesto smrti</div>
+              <div id="drawer-ms" class="info-val">-</div>
+            </div>
+            <div class="info-box full-width">
+              <div class="info-label">Bračni partner</div>
+              <div id="drawer-brak" class="info-val">-</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">Mobilni</div>
+              <div id="drawer-mob" class="info-val">-</div>
+            </div>
+            <div class="info-box">
+              <div class="info-label">Email</div>
+              <div id="drawer-email" class="info-val">-</div>
+            </div>
+            <div class="info-box full-width">
+              <div class="info-label">Biografija</div>
+              <div id="drawer-bio" class="info-val" style="font-weight: 400; line-height: 1.5;">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="drawer-actions">
+          <button id="drawer-add-child-btn" class="action-btn primary">➕ Dodaj dete</button>
+          <button id="drawer-edit-btn" class="action-btn">✏️ Izmeni</button>
+          <button id="drawer-delete-btn" class="action-btn danger">🗑️</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="modal-title">Naslov modala</h3>
+        <button id="modal-close-btn" class="modal-close-btn">✕</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App Entry -->
+  <script type="module" src="assets/js/app.js"></script>
+
+</body>
 </html>
