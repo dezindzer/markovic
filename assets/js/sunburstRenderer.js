@@ -177,7 +177,7 @@ export class SunburstRenderer {
     });
 
     path.append("title")
-      .text(d => `${d.ancestors().map(d => d.data.surname ? `${d.data.name} ${d.data.surname}` : d.data.name).reverse().join(" > ")}\nGodina: ${d.data.od || 'nepoznato'}`);
+      .text(d => `${d.ancestors().map(d => d.data.name).reverse().join(" > ")}\nGodina: ${d.data.od || 'nepoznato'}`);
 
     const label = svg.append("g")
       .attr("pointer-events", "none")
@@ -191,7 +191,7 @@ export class SunburstRenderer {
       .attr("fill", "#ffffff")
       .attr("font-size", "14px")
       .attr("font-weight", "700")
-      .text(d => d.data.surname ? `${d.data.name} ${d.data.surname}` : d.data.name);
+      .text(d => d.data.name);
 
     // Centralni krug (Koren)
     const parent = svg.append("circle")
