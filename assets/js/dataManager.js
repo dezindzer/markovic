@@ -8,7 +8,7 @@ export class DataManager {
     this.treeData = null;
     this.idCounter = 1;
     this.nodeMap = new Map();
-    this.storageKey = 'markovic_family_tree_v4';
+    this.storageKey = 'markovic_family_tree_v5';
   }
 
   async loadData() {
@@ -81,6 +81,8 @@ export class DataManager {
         mob: (node.mob && node.mob !== 'mobilni') ? node.mob : '',
         email: (node.email && node.email !== 'email') ? node.email : '',
         fb: (node.fb && node.fb !== 'facebook') ? node.fb : '',
+        ig: (node.ig && node.ig !== 'instagram') ? node.ig : '',
+        li: (node.li && node.li !== 'linkedin') ? node.li : '',
         sajt: (node.sajt && node.sajt !== 'websajt') ? node.sajt : '',
         slika: photoUrl,
         bio: (node.bio && node.bio !== 'biografija') ? node.bio : '',
@@ -172,6 +174,8 @@ export class DataManager {
       mob: newPersonData.mob || '',
       email: newPersonData.email || '',
       fb: newPersonData.fb || '',
+      ig: newPersonData.ig || '',
+      li: newPersonData.li || '',
       sajt: newPersonData.sajt || '',
       slika: newPersonData.slika || 'assets/img/osoba.jpg',
       bio: newPersonData.bio || '',
@@ -245,6 +249,8 @@ export class DataManager {
       if (node.mob) result.mob = node.mob;
       if (node.email) result.email = node.email;
       if (node.fb) result.fb = node.fb;
+      if (node.ig) result.ig = node.ig;
+      if (node.li) result.li = node.li;
       if (node.sajt) result.sajt = node.sajt;
       if (node.slika && node.slika !== 'assets/img/osoba.jpg') result.slika = node.slika;
       if (node.bio) result.bio = node.bio;

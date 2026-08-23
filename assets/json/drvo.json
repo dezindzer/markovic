@@ -52,6 +52,7 @@
                                                                         "name": "Aleksandar",
                                                                         "surname": "Marković",
                                                                         "gender": "male",
+                                                                        "fb": "https://www.facebook.com/aleksandar.markovic.581",
                                                                         "slika": "assets/img/Aleksandar M.jpg"
                                                                     }
                                                                 ]
@@ -158,6 +159,7 @@
                                                                 "name": "Snežana",
                                                                 "surname": "Stojanović",
                                                                 "gender": "female",
+                                                                "fb": "https://www.facebook.com/snezana.stojanovic.104",
                                                                 "slika": "assets/img/Snnezana S.jpg",
                                                                 "children": [
                                                                     {
@@ -183,6 +185,8 @@
                                                                         "name": "Romana",
                                                                         "surname": "Babić",
                                                                         "gender": "female",
+                                                                        "od": "15.4.1990",
+                                                                        "fb": "https://www.facebook.com/romana.babic",
                                                                         "slika": "assets/img/Romana B.jpg"
                                                                     }
                                                                 ]
@@ -246,7 +250,8 @@
                                                             {
                                                                 "name": "Snežana",
                                                                 "surname": "Marković",
-                                                                "gender": "female"
+                                                                "gender": "female",
+                                                                "fb": "https://www.facebook.com/snezana.markovic.063237311"
                                                             },
                                                             {
                                                                 "name": "Nebojša",
@@ -257,7 +262,7 @@
                                                                 "brak": "Slađana (Jovanović), 4.6.1963",
                                                                 "tel": "+381 11 2519 010",
                                                                 "mob": "+381 63 237 611",
-                                                                "fb": "100004695816028",
+                                                                "fb": "https://www.facebook.com/nebojsa.markovic.3958",
                                                                 "slika": "assets/img/Nebojsa.jpg",
                                                                 "children": [
                                                                     {
@@ -281,7 +286,7 @@
                                                                         "mr": "Beograd",
                                                                         "tel": "+381 11 2519 010",
                                                                         "mob": "+381 63 1147 937",
-                                                                        "fb": "100000630379936",
+                                                                        "fb": "https://www.facebook.com/AdriaNews",
                                                                         "slika": "assets/img/Jovan M.jpg"
                                                                     }
                                                                 ]
@@ -318,7 +323,8 @@
                                                                     {
                                                                         "name": "Tanja",
                                                                         "surname": "Milenovic",
-                                                                        "gender": "female"
+                                                                        "gender": "female",
+                                                                        "fb": "https://www.facebook.com/tanja.jovanovic.1232"
                                                                     },
                                                                     {
                                                                         "name": "Nenad",
@@ -366,23 +372,23 @@
                                                                 "od": "1.8.1957",
                                                                 "mr": "Zavidince",
                                                                 "brak": "Mirjana",
-                                                                "fb": "100001600724179",
+                                                                "fb": "https://www.facebook.com/predrag.markovic.1044",
                                                                 "slika": "assets/img/Predrag M2.jpg",
                                                                 "children": [
                                                                     {
                                                                         "name": "Milica",
-                                                                        "surname": "",
+                                                                        "surname": "Marković",
                                                                         "gender": "female",
                                                                         "od": "17.12.1992",
-                                                                        "fb": "100001025479925",
+                                                                        "fb": "https://www.facebook.com/milica.markovic.98837",
                                                                         "slika": "assets/img/Milica M.jpg"
                                                                     },
                                                                     {
                                                                         "name": "Jelena",
-                                                                        "surname": "",
+                                                                        "surname": "Stepić",
                                                                         "gender": "female",
                                                                         "od": "26.4.1994",
-                                                                        "fb": "1221069406"
+                                                                        "fb": "https://www.facebook.com/jelena.markovic.7505"
                                                                     }
                                                                 ]
                                                             },
@@ -471,6 +477,7 @@
                                                                 "name": "Nebojša",
                                                                 "surname": "Marković",
                                                                 "gender": "male",
+                                                                "fb": "https://www.facebook.com/zaplanjac",
                                                                 "slika": "assets/img/Nebojsa M.jpg",
                                                                 "children": [
                                                                     {
@@ -484,6 +491,7 @@
                                                                         "name": "Marko",
                                                                         "surname": "Marković",
                                                                         "gender": "male",
+                                                                        "fb": "https://www.facebook.com/markeeri",
                                                                         "slika": "assets/img/Marko M.jpg"
                                                                     }
                                                                 ]

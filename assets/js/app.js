@@ -69,6 +69,8 @@ class App {
     this.drawerBrak = document.getElementById('drawer-brak');
     this.drawerMob = document.getElementById('drawer-mob');
     this.drawerEmail = document.getElementById('drawer-email');
+    this.drawerSocialBox = document.getElementById('drawer-social-box');
+    this.drawerSocialLinks = document.getElementById('drawer-social-links');
     this.drawerBio = document.getElementById('drawer-bio');
     this.drawerAddChildBtn = document.getElementById('drawer-add-child-btn');
     this.drawerEditBtn = document.getElementById('drawer-edit-btn');
@@ -314,6 +316,26 @@ class App {
     this.drawerBrak.textContent = person.brak || '-';
     this.drawerMob.textContent = person.mob || person.tel || '-';
     this.drawerEmail.textContent = person.email || '-';
+
+    // Društvene mreže i web linkovi
+    const igUrl = this.treeRenderer.formatSocialUrl('ig', person.ig);
+    const fbUrl = this.treeRenderer.formatSocialUrl('fb', person.fb);
+    const liUrl = this.treeRenderer.formatSocialUrl('li', person.li);
+    const sajtUrl = this.treeRenderer.formatSocialUrl('sajt', person.sajt);
+
+    let socialHTML = '';
+    if (igUrl) socialHTML += `<a href="${igUrl}" target="_blank" class="drawer-social-btn ig">📸 Instagram (${person.ig})</a>`;
+    if (fbUrl) socialHTML += `<a href="${fbUrl}" target="_blank" class="drawer-social-btn fb">📘 Facebook</a>`;
+    if (liUrl) socialHTML += `<a href="${liUrl}" target="_blank" class="drawer-social-btn li">💼 LinkedIn</a>`;
+    if (sajtUrl) socialHTML += `<a href="${sajtUrl}" target="_blank" class="drawer-social-btn web">🌐 ${person.sajt}</a>`;
+
+    if (socialHTML && this.drawerSocialBox && this.drawerSocialLinks) {
+      this.drawerSocialLinks.innerHTML = socialHTML;
+      this.drawerSocialBox.style.display = 'block';
+    } else if (this.drawerSocialBox) {
+      this.drawerSocialBox.style.display = 'none';
+    }
+
     this.drawerBio.textContent = person.bio || 'Nema unete biografije.';
 
     this.detailDrawer.classList.add('open');
@@ -378,6 +400,26 @@ class App {
             <input type="email" id="add-email" class="form-input" placeholder="email@example.com">
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Instagram</label>
+            <input type="text" id="add-ig" class="form-input" placeholder="korisničko ime ili URL">
+          </div>
+          <div class="form-group">
+            <label>Facebook</label>
+            <input type="text" id="add-fb" class="form-input" placeholder="korisničko ime ili ID">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>LinkedIn</label>
+            <input type="text" id="add-li" class="form-input" placeholder="profil URL ili ime">
+          </div>
+          <div class="form-group">
+            <label>Web sajt</label>
+            <input type="text" id="add-sajt" class="form-input" placeholder="https://mojsajt.com">
+          </div>
+        </div>
         <div class="form-group">
           <label>Biografija / Napomena</label>
           <textarea id="add-bio" class="form-textarea" rows="3" placeholder="Kratka biografija..."></textarea>
@@ -403,6 +445,10 @@ class App {
         mr: document.getElementById('add-mr').value.trim(),
         mob: document.getElementById('add-mob').value.trim(),
         email: document.getElementById('add-email').value.trim(),
+        ig: document.getElementById('add-ig').value.trim(),
+        fb: document.getElementById('add-fb').value.trim(),
+        li: document.getElementById('add-li').value.trim(),
+        sajt: document.getElementById('add-sajt').value.trim(),
         bio: document.getElementById('add-bio').value.trim()
       };
 
@@ -469,6 +515,26 @@ class App {
             <input type="text" id="edit-ms" class="form-input" value="${this.escapeHTML(person.ms)}">
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Instagram</label>
+            <input type="text" id="edit-ig" class="form-input" value="${this.escapeHTML(person.ig || '')}" placeholder="korisničko ime ili URL">
+          </div>
+          <div class="form-group">
+            <label>Facebook</label>
+            <input type="text" id="edit-fb" class="form-input" value="${this.escapeHTML(person.fb || '')}" placeholder="korisničko ime ili ID">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>LinkedIn</label>
+            <input type="text" id="edit-li" class="form-input" value="${this.escapeHTML(person.li || '')}" placeholder="profil URL ili ime">
+          </div>
+          <div class="form-group">
+            <label>Web sajt</label>
+            <input type="text" id="edit-sajt" class="form-input" value="${this.escapeHTML(person.sajt || '')}" placeholder="https://mojsajt.com">
+          </div>
+        </div>
         <div class="form-group">
           <label>Biografija</label>
           <textarea id="edit-bio" class="form-textarea" rows="3">${this.escapeHTML(person.bio)}</textarea>
@@ -494,6 +560,10 @@ class App {
         mr: document.getElementById('edit-mr').value.trim(),
         do: document.getElementById('edit-do').value.trim(),
         ms: document.getElementById('edit-ms').value.trim(),
+        ig: document.getElementById('edit-ig').value.trim(),
+        fb: document.getElementById('edit-fb').value.trim(),
+        li: document.getElementById('edit-li').value.trim(),
+        sajt: document.getElementById('edit-sajt').value.trim(),
         bio: document.getElementById('edit-bio').value.trim()
       };
 

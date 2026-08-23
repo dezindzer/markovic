@@ -560,6 +560,71 @@ html, body {
   gap: 3px;
 }
 
+/* Social profile badges on node cards */
+.node-social-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.social-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  transform: scale(1.18);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.social-btn.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none; }
+.social-btn.fb { background: #1877f2; border: none; }
+.social-btn.li { background: #0a66c2; border: none; }
+.social-btn.web { background: #10b981; border: none; }
+
+/* Social profile buttons in drawer */
+.drawer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.drawer-social-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border-color);
+}
+
+.drawer-social-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.drawer-social-btn.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none; }
+.drawer-social-btn.fb { background: #1877f2; border: none; }
+.drawer-social-btn.li { background: #0a66c2; border: none; }
+.drawer-social-btn.web { background: #10b981; border: none; }
+
 /* Toggle Children Collapse Button */
 .node-collapse-btn {
   position: absolute;
